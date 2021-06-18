@@ -31,7 +31,7 @@ Bindings:
 
 It uses template in html, replace some marked ##VALUES### and returns html *ContentResult*
 
-![ShowData gauge](/images/screen.png)
+![ShowData gauge](https://github.com/rawlukMike/photovoltaicData/blob/main/images/screen.jpg)
 
 
 
