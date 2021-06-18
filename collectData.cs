@@ -71,8 +71,12 @@ namespace Rawcloud.PhotoDataViewer
                 }
             }
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
-            if(!appendBlob.Exists()) appendBlob.UploadText(JsonConvert.SerializeObject(dataDictX)+"\n");
-            else appendBlob.AppendText(JsonConvert.SerializeObject(dataDictX)+"\n");
+
+            if(int.Parse(dataDictX["power"])>0)
+            {
+                if(!appendBlob.Exists()) appendBlob.UploadText(JsonConvert.SerializeObject(dataDictX)+"\n");
+                else appendBlob.AppendText(JsonConvert.SerializeObject(dataDictX)+"\n");
+            }
         }
     }
 }

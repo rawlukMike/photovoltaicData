@@ -124,7 +124,7 @@ body {
 				.attr('x', -(size - thickness / 2));
 			
 			setInterval(function() {
-				update(###POWER###);
+				update(9200);
 			}, 1500);
 			
 			function update(v) {
@@ -163,5 +163,39 @@ body {
 				});
 			}
 			</script>
+			<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+			<script type="text/javascript">
+
+				window.onload = function () {
+					var chart = new CanvasJS.Chart("chartContainer",
+					{
+						zoomEnabled: true,
+						title:{
+							text: "Moc instalacji"
+						},
+						axisX:{
+							title: "Data",
+							gridThickness: 2
+						},
+						axisY: {
+							title: "Moc instalacji [W]"
+						},
+						data: [
+						{        
+							type: "area",
+							dataPoints: [
+								{ x: new Date(2012, 01, 1), y: 26, label:"Dzienna produkcja: "},
+								{ x: new Date(2012, 01, 3), y: 38},
+								{ x: new Date(2012, 01, 5), y: 43},
+								{ x: new Date(2012, 01, 7), y: 29}
+							]
+						}]
+					});
+					chart.render();
+				}
+				</script>
+			<center>
+			<div id="chartContainer" style="height: 300px; width: 70%;">
+			</center>	
 	</body>
 </html>

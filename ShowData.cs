@@ -38,6 +38,12 @@ namespace Rawcloud.PhotoDataViewer
 
             EnergyData lastData = JsonConvert.DeserializeObject<EnergyData>(lastLine);
             var output = templateHTML.Replace("###POWER###", lastData.power).Replace("###TIME###", lastData.time).Replace("###TODAY###", lastData.today_energy).Replace("###TOTAL###", lastData.total_energy);
+            
+            
+            // GENERATE TIME SERIES
+            //{ x: new Date(2012, 01, 7), y: 29}
+
+
             return new ContentResult { Content = output, ContentType = "text/html" };
         }
     }
