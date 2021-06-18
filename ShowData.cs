@@ -22,7 +22,7 @@ namespace Rawcloud.PhotoDataViewer
     {
         [FunctionName("ShowData")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
             ILogger log,
             [Blob("collected/photoData.json", FileAccess.Read)] CloudAppendBlob appendBlob,
             [Blob("collected/template.html", FileAccess.Read)] CloudBlockBlob templateBlob
