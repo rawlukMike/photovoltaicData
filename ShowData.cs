@@ -7,6 +7,7 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using System;
 
 namespace Rawcloud.PhotoDataViewer
 {
@@ -39,7 +40,15 @@ namespace Rawcloud.PhotoDataViewer
             EnergyData lastData = JsonConvert.DeserializeObject<EnergyData>(lastLine);
             var output = templateHTML.Replace("###POWER###", lastData.power).Replace("###TIME###", lastData.time).Replace("###TODAY###", lastData.today_energy).Replace("###TOTAL###", lastData.total_energy);
             
-            
+            string dataSeries = "";
+
+
+            //{"time":"18.06.2021 13:50:00","power":"8900","today_energy":"45.51","total_energy":"5959.0"}
+            foreach(string line in dataLines)
+            {
+                EnergyData currentEnergy = JsonConvert.DeserializeObject<EnergyData>(line);
+                DateTime time = DateTime.Parse(currentEnergy.time, "")
+            }
             // GENERATE TIME SERIES
             //{ x: new Date(2012, 01, 7), y: 29}
 
